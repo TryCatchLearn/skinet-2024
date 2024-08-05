@@ -5,7 +5,6 @@ using Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
@@ -58,7 +57,8 @@ public class AccountController(SignInManager<AppUser> signInManager) : BaseApiCo
             user.FirstName,
             user.LastName,
             user.Email,
-            Address = user.Address?.ToDto()
+            Address = user.Address?.ToDto(),
+            Roles = User.FindFirstValue(ClaimTypes.Role)
         });
     }
 
@@ -88,5 +88,21 @@ public class AccountController(SignInManager<AppUser> signInManager) : BaseApiCo
         if (!result.Succeeded) return BadRequest("Problem updating user address");
 
         return Ok(user.Address.ToDto());
+    }
+
+    [Authorize]
+    [HttpPost("reset-password")]
+    public async Task<ActionResult> ResetPassword(string currentPassword, string newPassword)
+    {
+        var user = await signInManager.UserManager.GetUserByEmail(User);
+
+        var result = await signInManager.UserManager.ChangePasswordAsync(user, currentPassword, newPassword);
+
+        if (result.Succeeded)
+        {
+            return Ok("Password updated");
+        } 
+
+        return BadRequest("Failed to update password");
     }
 }
