@@ -1,0 +1,17 @@
+<div class="flex justify-between items-center mt-2">
+    <div class="text-2xl font-semibold mt-4">
+      Admin catalog
+    </div>
+    <button mat-flat-button (click)="openCreateDialog()">
+      Create new
+    </button>
+  </div>
+  
+  <app-custom-table 
+    [columns]="columns" 
+    [dataSource]="products" 
+    [actions]="actions" 
+    [totalItems]="totalItems"
+    [pageSize]="productParams.pageSize" 
+    (pageChange)="onPageChange($event)" 
+  />

@@ -1,0 +1,7 @@
+<mat-form-field appearance="outline" class="w-full mb-4">
+    <mat-label>{{label}}</mat-label>
+    <textarea [formControl]="control" placeholder={{label}} matInput></textarea>
+    @if (control.hasError('required')) {
+        <mat-error>{{label}} is required</mat-error>
+    }
+</mat-form-field>

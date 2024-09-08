@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content class="p-3">
+  <form [formGroup]="productForm" class="p-4 w-full" (ngSubmit)="onSubmit()">
+    <app-text-input label="Product name" formControlName="name" />
+    <app-text-area label="Description" formControlName="description" />
+    <app-text-input label="Price" formControlName="price" type="number" />
+    <app-text-input label="Picture URL" formControlName="pictureUrl" />
+    <div class="flex justify-between w-full gap-3">
+      <app-select-input label="Type" formControlName="type" [options]="shopService.types" class="w-full" />
+      <app-select-input label="Brand" formControlName="brand" [options]="shopService.brands" class="w-full" />
+    </div>
+
+    <div class="flex justify-end gap-3">
+      <button mat-button color="warn" type="button" mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">
+        Submit
+      </button>
+    </div>
+
+  </form>
+</mat-dialog-content>

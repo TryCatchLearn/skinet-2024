@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Update quantity in stock</h2>
+
+<mat-dialog-content>
+    <div class="flex gap-4 mt-6">
+        <mat-form-field appearance="outline" class="flex">
+            <mat-label>Quantity of {{data.name}}</mat-label>
+            <input matInput min="0" [(ngModel)]="updatedQuantity" type="number">
+        </mat-form-field>
+        <button [disabled]="data.quantity === updatedQuantity" (click)="updateQuantity()" mat-flat-button
+            class="match-input-height">
+            Update quantity
+        </button>
+    </div>
+</mat-dialog-content>

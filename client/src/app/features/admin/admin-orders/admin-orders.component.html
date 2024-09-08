@@ -1,0 +1,12 @@
+<div class="text-2xl font-semibold mt-4">
+    Customer orders
+</div>
+
+<app-custom-table
+  [columns]="columns"
+  [dataSource]="orders"
+  [actions]="actions"
+  [totalItems]="totalItems"
+  [pageSize]="orderParams.pageSize"
+  (pageChange)="onPageChange($event)"
+></app-custom-table>
