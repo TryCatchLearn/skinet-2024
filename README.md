@@ -1,6 +1,6 @@
-# Skinet 2024 Project Repository (the latest version of this project repo using .Net 9 and Angular 20 can be found [here]https://github.com/TryCatchLearn/skinet)
+# Skinet 2024 Project Repository (the latest version of this project repo using .Net 9 and Angular 20 can be found [here](https://github.com/TryCatchLearn/skinet)
 
-Welcome to the brand new version of the SkiNet app created for the Udemy training course available [here](https://www.udemy.com/course/learn-to-build-an-e-commerce-app-with-net-core-and-angular).
+Welcome to the brand new version of the SkiNet app created for the Udemy training course available [here]https://www.udemy.com/course/learn-to-build-an-e-commerce-app-with-net-core-and-angular).
 
 This has been rewritten from scratch to take advantage of and to make it (hopefully) a bit more futureproof.  This app is built using .Net 8 and Angular 18 
 
